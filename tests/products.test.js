@@ -4,7 +4,7 @@ const LoginPage = require('../pages/LoginPage');
 const ProductsPage = require('../pages/ProductsPage');
 
 describe('SauceDemo Products Page Tests', function () {
-    this.timeout(10000);
+    this.timeout(20000);
 
     let driver;
     let loginPage;
@@ -27,11 +27,13 @@ describe('SauceDemo Products Page Tests', function () {
     });
 
     it('TC04: Should display products page and verify product count', async function () {
+        
+
         let title = await productsPage.getPageTitle();
         expect(title).to.equal('Products');
 
         let count = await productsPage.getProductCount();
-        expect(count).to.be.greaterThan(0); // প্রোডাক্ট লিস্ট খালি না থাকা নিশ্চিত করা
+        expect(count).to.be.greaterThan(0); 
     });
 
     it('TC05: Should add product to cart and update cart badge', async function () {

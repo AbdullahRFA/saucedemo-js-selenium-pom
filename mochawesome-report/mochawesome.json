@@ -1,0 +1,464 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 9,
+    "passes": 9,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-21T13:54:07.192Z",
+    "end": "2026-10-21T13:55:07.772Z",
+    "duration": 60580,
+    "testsRegistered": 9,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3ee341db-44fa-4095-8c98-c1a770c23179",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "08116daf-8f6b-4cd9-a29c-4f2622dade67",
+          "title": "SauceDemo Cart Page Tests",
+          "fullFile": "/Users/abdullahnazmus-sakib/Desktop/saucedemo-js-selenium-pom/tests/cart.test.js",
+          "file": "/tests/cart.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"SauceDemo Cart Page Tests\"",
+              "fullTitle": "SauceDemo Cart Page Tests \"before each\" hook in \"SauceDemo Cart Page Tests\"",
+              "timedOut": false,
+              "duration": 4000,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await createDriver();\nloginPage = new LoginPage(driver);\nproductsPage = new ProductsPage(driver);\ncartPage = new CartPage(driver);\n\nawait loginPage.open();\nawait loginPage.login('standard_user', 'secret_sauce');\n\n// প্রোডাক্ট কার্টে অ্যাড করা\nawait productsPage.addBackpackToCart();\n\n// নিশ্চিত হওয়া যে কার্ট ব্যাজ আপডেট হয়েছে (এতে সিঙ্ক্রোনাইজেশনের প্রবলেম দূর হবে)\nlet badgeCount = await productsPage.getCartBadgeCount();\nexpect(badgeCount).to.equal('1');\n// এরপর কার্ট আইকনে ক্লিক করে কার্ট পেজে যাওয়া\nawait productsPage.clickCartIcon();",
+              "err": {},
+              "uuid": "000ae221-14e8-4797-a7f6-046bd5c06fbb",
+              "parentUUID": "08116daf-8f6b-4cd9-a29c-4f2622dade67",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"SauceDemo Cart Page Tests\"",
+              "fullTitle": "SauceDemo Cart Page Tests \"after each\" hook in \"SauceDemo Cart Page Tests\"",
+              "timedOut": false,
+              "duration": 59,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.quit();\n}",
+              "err": {},
+              "uuid": "1c2f3e94-3619-4da4-b280-f5b1cf937129",
+              "parentUUID": "08116daf-8f6b-4cd9-a29c-4f2622dade67",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "TC07: Should display the correct product in the cart",
+              "fullTitle": "SauceDemo Cart Page Tests TC07: Should display the correct product in the cart",
+              "timedOut": false,
+              "duration": 21,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let itemCount = await cartPage.getCartItemCount();\nexpect(itemCount).to.equal(1);\nlet itemName = await cartPage.getCartItemName();\nexpect(itemName).to.equal('Sauce Labs Backpack');",
+              "err": {},
+              "uuid": "9e17f852-4ea2-4359-9140-57d03e3cb3b3",
+              "parentUUID": "08116daf-8f6b-4cd9-a29c-4f2622dade67",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC08: Should navigate to checkout page when clicking checkout button",
+              "fullTitle": "SauceDemo Cart Page Tests TC08: Should navigate to checkout page when clicking checkout button",
+              "timedOut": false,
+              "duration": 60,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await cartPage.clickCheckout();\nlet currentUrl = await driver.getCurrentUrl();\nexpect(currentUrl).to.include('/checkout-step-one.html');",
+              "err": {},
+              "uuid": "47f2cb82-9c7e-432b-bf51-d44a89bdeb6b",
+              "parentUUID": "08116daf-8f6b-4cd9-a29c-4f2622dade67",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9e17f852-4ea2-4359-9140-57d03e3cb3b3",
+            "47f2cb82-9c7e-432b-bf51-d44a89bdeb6b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 81,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        },
+        {
+          "uuid": "b2b0797c-223b-4e8a-a92f-d993cec6f9f2",
+          "title": "SauceDemo E2E Checkout Flow Tests",
+          "fullFile": "/Users/abdullahnazmus-sakib/Desktop/saucedemo-js-selenium-pom/tests/checkout.test.js",
+          "file": "/tests/checkout.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"SauceDemo E2E Checkout Flow Tests\"",
+              "fullTitle": "SauceDemo E2E Checkout Flow Tests \"before each\" hook in \"SauceDemo E2E Checkout Flow Tests\"",
+              "timedOut": false,
+              "duration": 1347,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await createDriver();\nloginPage = new LoginPage(driver);\nproductsPage = new ProductsPage(driver);\ncartPage = new CartPage(driver);\ncheckoutPage = new CheckoutPage(driver);",
+              "err": {},
+              "uuid": "15f57ba3-1ab0-4b9e-b361-d4ac3f4de2eb",
+              "parentUUID": "b2b0797c-223b-4e8a-a92f-d993cec6f9f2",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"SauceDemo E2E Checkout Flow Tests\"",
+              "fullTitle": "SauceDemo E2E Checkout Flow Tests \"after each\" hook in \"SauceDemo E2E Checkout Flow Tests\"",
+              "timedOut": false,
+              "duration": 58,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.quit();\n}",
+              "err": {},
+              "uuid": "a9861435-8b7a-4ccc-86ba-f5b2fca8b502",
+              "parentUUID": "b2b0797c-223b-4e8a-a92f-d993cec6f9f2",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "TC09: Should complete the full E2E purchase flow successfully",
+              "fullTitle": "SauceDemo E2E Checkout Flow Tests TC09: Should complete the full E2E purchase flow successfully",
+              "timedOut": false,
+              "duration": 5615,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Ensure the login page is opened and the user logs in with valid credentials\nawait loginPage.open();\nawait loginPage.login('standard_user', 'secret_sauce');\n// 2. Add a product to the cart and verify the cart badge updates\nawait productsPage.addBackpackToCart();\nlet badgeCount = await productsPage.getCartBadgeCount();\nexpect(badgeCount).to.equal('1');\nawait productsPage.clickCartIcon();\n// 3. Verify that the cart has the correct item before proceeding to checkout\nlet itemCount = await cartPage.getCartItemCount();\nexpect(itemCount).to.equal(1);\nawait cartPage.clickCheckout();\n// 4. Fill in the checkout information and continue\nawait checkoutPage.fillCheckoutInformation('Abdullah', 'Nazmus', '1216');\nawait checkoutPage.clickContinue();\n// 5. Validate that the checkout overview page is displayed\nawait checkoutPage.clickFinish();\n// 6. Verify that the order completion message is displayed\nlet successMessage = await checkoutPage.getCompleteHeaderMessage();\nexpect(successMessage).to.include('Thank you for your order!');",
+              "err": {},
+              "uuid": "97d3eda7-23cc-4e3a-8b47-a8e7f1ce0fbf",
+              "parentUUID": "b2b0797c-223b-4e8a-a92f-d993cec6f9f2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "97d3eda7-23cc-4e3a-8b47-a8e7f1ce0fbf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5615,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        },
+        {
+          "uuid": "898242a4-9d80-4fd5-a141-070676281128",
+          "title": "SauceDemo Login Page Tests",
+          "fullFile": "/Users/abdullahnazmus-sakib/Desktop/saucedemo-js-selenium-pom/tests/login.test.js",
+          "file": "/tests/login.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"SauceDemo Login Page Tests\"",
+              "fullTitle": "SauceDemo Login Page Tests \"before each\" hook in \"SauceDemo Login Page Tests\"",
+              "timedOut": false,
+              "duration": 4231,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await createDriver();\nloginPage = new LoginPage(driver);\nawait loginPage.open();",
+              "err": {},
+              "uuid": "d83f899e-d92c-4f64-b0e8-bb1ba7cc1b7a",
+              "parentUUID": "898242a4-9d80-4fd5-a141-070676281128",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"SauceDemo Login Page Tests\"",
+              "fullTitle": "SauceDemo Login Page Tests \"after each\" hook in \"SauceDemo Login Page Tests\"",
+              "timedOut": false,
+              "duration": 52,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// if driver created successfully, then quit the driver to close the browser\nif (driver) {\n  await driver.quit();\n}",
+              "err": {},
+              "uuid": "559db1b5-b8b8-4c2e-a52a-d26bb8a97645",
+              "parentUUID": "898242a4-9d80-4fd5-a141-070676281128",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "TC01: Should login successfully with valid standard credentials",
+              "fullTitle": "SauceDemo Login Page Tests TC01: Should login successfully with valid standard credentials",
+              "timedOut": false,
+              "duration": 368,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginPage.login(\"standard_user\", \"secret_sauce\");\n// Validation: After successful login, user should be redirected to the products page and we will check the URL\nlet currentUrl = await driver.getCurrentUrl();\nexpect(currentUrl).to.include(\"/inventory.html\");",
+              "err": {},
+              "uuid": "c37f0f57-9c53-4023-a723-8688d875f5d1",
+              "parentUUID": "898242a4-9d80-4fd5-a141-070676281128",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC02: Should show error message with locked out user",
+              "fullTitle": "SauceDemo Login Page Tests TC02: Should show error message with locked out user",
+              "timedOut": false,
+              "duration": 322,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginPage.login(\"locked_out_user\", \"secret_sauce\");\nlet errorText = await loginPage.getErrorMessage();\nexpect(errorText).to.include(\"Sorry, this user has been locked out\");",
+              "err": {},
+              "uuid": "c5010d91-44a2-415a-8dce-f19fb0cc5212",
+              "parentUUID": "898242a4-9d80-4fd5-a141-070676281128",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC03: Should show error message with invalid password",
+              "fullTitle": "SauceDemo Login Page Tests TC03: Should show error message with invalid password",
+              "timedOut": false,
+              "duration": 335,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginPage.login(\"standard_user\", \"wrong_password\");\nlet errorText = await loginPage.getErrorMessage();\nexpect(errorText).to.include(\"Username and password do not match\");",
+              "err": {},
+              "uuid": "182475fd-5f87-4dc2-b8b2-a44c65b5093f",
+              "parentUUID": "898242a4-9d80-4fd5-a141-070676281128",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c37f0f57-9c53-4023-a723-8688d875f5d1",
+            "c5010d91-44a2-415a-8dce-f19fb0cc5212",
+            "182475fd-5f87-4dc2-b8b2-a44c65b5093f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1025,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        },
+        {
+          "uuid": "2f7a45d0-d25f-4f31-9eba-948a117bcc2e",
+          "title": "SauceDemo Products Page Tests",
+          "fullFile": "/Users/abdullahnazmus-sakib/Desktop/saucedemo-js-selenium-pom/tests/products.test.js",
+          "file": "/tests/products.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"SauceDemo Products Page Tests\"",
+              "fullTitle": "SauceDemo Products Page Tests \"before each\" hook in \"SauceDemo Products Page Tests\"",
+              "timedOut": false,
+              "duration": 7208,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await createDriver();\nloginPage = new LoginPage(driver);\nproductsPage = new ProductsPage(driver);\n\n// each test will start with the user logged in and on the products page\nawait loginPage.open();\nawait loginPage.login('standard_user', 'secret_sauce');",
+              "err": {},
+              "uuid": "9ed8f7f6-21a7-44d8-993a-32e2d3c96d30",
+              "parentUUID": "2f7a45d0-d25f-4f31-9eba-948a117bcc2e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"SauceDemo Products Page Tests\"",
+              "fullTitle": "SauceDemo Products Page Tests \"after each\" hook in \"SauceDemo Products Page Tests\"",
+              "timedOut": false,
+              "duration": 59,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.quit();\n}",
+              "err": {},
+              "uuid": "2f7ca2fd-05f3-40c6-8739-723dfd8e1191",
+              "parentUUID": "2f7a45d0-d25f-4f31-9eba-948a117bcc2e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "TC04: Should display products page and verify product count",
+              "fullTitle": "SauceDemo Products Page Tests TC04: Should display products page and verify product count",
+              "timedOut": false,
+              "duration": 74,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let title = await productsPage.getPageTitle();\nexpect(title).to.equal('Products');\nlet count = await productsPage.getProductCount();\nexpect(count).to.be.greaterThan(0);",
+              "err": {},
+              "uuid": "ae180ae0-37d1-4102-a35b-8f0385ac667d",
+              "parentUUID": "2f7a45d0-d25f-4f31-9eba-948a117bcc2e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC05: Should add product to cart and update cart badge",
+              "fullTitle": "SauceDemo Products Page Tests TC05: Should add product to cart and update cart badge",
+              "timedOut": false,
+              "duration": 117,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await productsPage.addBackpackToCart();\n\nlet badgeCount = await productsPage.getCartBadgeCount();\nexpect(badgeCount).to.equal('1');",
+              "err": {},
+              "uuid": "01b32ee1-e12e-4aa2-8817-5fcacf8c57d1",
+              "parentUUID": "2f7a45d0-d25f-4f31-9eba-948a117bcc2e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC06: Should sort products by Price (Low to High)",
+              "fullTitle": "SauceDemo Products Page Tests TC06: Should sort products by Price (Low to High)",
+              "timedOut": false,
+              "duration": 62,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// লো টু হাই সর্ট অপশন সিলেক্ট করা ('lohi')\nawait productsPage.sortBy('lohi');\n\n// ভেলিডেশন হিসেবে প্রথম প্রোডাক্টের নাম বা প্রাইস চেক করা যেতে পারে\nlet currentUrl = await driver.getCurrentUrl();\nexpect(currentUrl).to.include('/inventory.html');",
+              "err": {},
+              "uuid": "2eed8d8f-aafc-44f0-8a68-476c01b740fd",
+              "parentUUID": "2f7a45d0-d25f-4f31-9eba-948a117bcc2e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ae180ae0-37d1-4102-a35b-8f0385ac667d",
+            "01b32ee1-e12e-4aa2-8817-5fcacf8c57d1",
+            "2eed8d8f-aafc-44f0-8a68-476c01b740fd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 253,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 20000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "12.0.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}

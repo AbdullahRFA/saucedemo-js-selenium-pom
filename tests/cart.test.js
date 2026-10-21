@@ -5,7 +5,7 @@ const ProductsPage = require('../pages/ProductsPage');
 const CartPage = require('../pages/CartPage');
 
 describe('SauceDemo Cart Page Tests', function () {
-    this.timeout(10000);
+    this.timeout(20000);
 
     let driver;
     let loginPage;

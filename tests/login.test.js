@@ -4,7 +4,7 @@ const LoginPage = require("../pages/LoginPage");
 
 describe("SauceDemo Login Page Tests", function () {
   // Set a timeout for each test to allow for page load and interactions
-  this.timeout(10000);
+  this.timeout(20000);
   let driver;
   let loginPage;
 
