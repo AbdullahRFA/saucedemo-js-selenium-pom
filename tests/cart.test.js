@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { createDriver } = require('../utils/BaseDriver');
+const { createDriver } = require('../utils/baseDriver');
 const LoginPage = require('../pages/LoginPage');
 const ProductsPage = require('../pages/ProductsPage');
 const CartPage = require('../pages/CartPage');
